@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="مرجع Python عربي تفاعلي من الأساسيات إلى OOP وOdoo.">
+  <title>Python Master Reference | مرجع بايثون</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">Py<span>;</span></div>
+        <div><strong>Python Master</strong><small>مرجعك البرمجي</small></div>
+      </div>
+      <div class="sidebar-label">مسار التعلّم</div>
+      <nav class="nav-list" id="navList" aria-label="أقسام المرجع"></nav>
+      <div class="sidebar-bottom">
+        <div class="progress-head"><span>تقدّمك في المذاكرة</span><b id="progressText">0%</b></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <button class="reset-progress" id="resetProgress">إعادة ضبط التقدم ↺</button>
+        <div class="sidebar-note"><span class="status-dot"></span> اتعلّم خطوة بخطوة</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+        <div class="breadcrumbs">المكتبة <span>/</span> <b id="crumbTitle">البداية</b></div>
+        <div class="top-actions">
+          <span class="version-pill">PYTHON 3</span>
+          <button class="icon-button" id="themeToggle" aria-label="تغيير المظهر" title="تغيير المظهر">☼</button>
+        </div>
+      </header>
+
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PYTHON KNOWLEDGE BASE</div>
+          <h1>اتعلّم Python،<br><span>وابني مستقبلك بإيدك.</span></h1>
+          <p>مرجع عربي تفاعلي يجمع الأساسيات، أنواع البيانات، الميثودز، الدوال، والبرمجة الكائنية — بخطوات واضحة وأمثلة عملية.</p>
+          <div class="hero-buttons">
+            <button class="primary-button" id="startLearning">ابدأ التعلّم <span>←</span></button>
+            <a class="secondary-button" href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">التوثيق الرسمي ↗</a>
+          </div>
+          <div class="hero-meta"><span>⌘ مرجع سريع</span><span>•</span><span>أمثلة قابلة للنسخ</span><span>•</span><span>مناسب للمبتدئين</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="python-symbol">Py</div>
+          <div class="floating-card card-top"><span class="mini-dot green"></span> print("Hello, world!")</div>
+          <div class="floating-card card-bottom"><span class="mini-dot purple"></span> <b>def</b> build_future():</div>
+          <div class="art-caption">LEARN · BUILD · REPEAT</div>
+        </div>
+      </section>
+
+      <section class="search-section">
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input id="searchInput" type="search" placeholder="دوّر على موضوع، ميثود، أو كلمة زي list أو append..." autocomplete="off">
+          <kbd>بحث</kbd>
+          <button id="clearSearch" class="clear-search" aria-label="مسح البحث">×</button>
+        </div>
+        <div class="search-hint" id="searchHint">جرّب تبحث عن: <button data-search="list">list</button><button data-search="methods">methods</button><button data-search="function">function</button><button data-search="OOP">OOP</button></div>
+      </section>
+
+      <section class="welcome-row" id="welcomeRow">
+        <div>
+          <div class="section-kicker">ابدأ من هنا</div>
+          <h2>خريطة الطريق بتاعتك</h2>
+          <p>اختار أي باب من القائمة، أو ابدأ بالأساسيات بالترتيب.</p>
+        </div>
+        <div class="stat-card"><span class="stat-icon">▤</span><div><b id="topicCount">12</b><small>باب تعليمي</small></div></div>
+        <div class="stat-card"><span class="stat-icon purple-icon">✓</span><div><b id="doneCount">0</b><small>باب خلصته</small></div></div>
+      </section>
+
+      <section class="content-grid" id="contentGrid"></section>
+
+      <section class="lesson-view hidden" id="lessonView">
+        <div class="lesson-topline">
+          <button class="back-button" id="backHome">→ كل الأبواب</button>
+          <button class="complete-button" id="completeLesson">○ علّم الباب كمكتمل</button>
+        </div>
+        <div id="lessonContent"></div>
+      </section>
+
+      <section class="no-results hidden" id="noResults">
+        <div class="empty-icon">⌕</div><h3>ملقيناش نتيجة</h3><p>جرّب كلمة تانية أو اختار باب من القائمة.</p>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-brand"><span class="footer-logo">Py;</span><div><b>Python Master Reference</b><small>اتعلم النهارده حاجة تبني بيها بكرة.</small></div></div>
+        <div class="footer-links"><a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">Built-in Functions ↗</a><a href="https://docs.python.org/3/library/stdtypes.html" target="_blank" rel="noopener">Built-in Types ↗</a><a href="https://www.odoo.com/documentation/" target="_blank" rel="noopener">Odoo Docs ↗</a></div>
+        <p>المحتوى للتعلّم والمراجعة — راجع التوثيق الرسمي للتفاصيل حسب إصدار Python.</p>
+      </footer>
+    </main>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
